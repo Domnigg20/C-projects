@@ -2,9 +2,8 @@
 Write a program that reads integers until 0 is entered. After input terminates, the
 program should report the total number of even integers (excluding the 0)
 entered, the average value of the even integers, the total number of odd integers
-entered, and the average value of the odd integers
+entered, and the average value of the odd integers--using switch
 */
-
 #include <stdio.h>
 
 #define STOP 0
@@ -25,21 +24,34 @@ printf("Enter an Integer\n");
 	while ((scanf("%d", &number) != STOP))
 {
 
+  switch(number) {
+
+    case 1 :
     if (number % 2 == 0 && number != 0){
     printf ("The number %d is even \n", number);
     count_even++;
-     sum_even += number;
+     sum_even += number; }
+     break;
 
-
-    }
-
+    case 2:
     else{
         
      printf("The number %d is odd\n", number);
     count_odd++;
     sum_odd += number;
     }
-if (count_even >0)
+    break:
+
+    default:
+    printf("Stop %d encountered", STOP);
+
+
+
+
+  }
+
+
+  if (count_even >0)
 {
 
     printf("Average of odd numbers: %.2f\n", (float)sum_even / count_even);
@@ -66,9 +78,7 @@ else {
 
 
 
-
-
+	return 0;
 }
 
-	return 0;
 }
